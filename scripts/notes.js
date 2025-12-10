@@ -48,7 +48,7 @@ export function initNotes() {
             btnContainer.className = "flex justify-end mt-2";
 
             const editBtn = document.createElement('button');
-            editBtn.textContent = "Edit";
+            editBtn.textContent = "✏";
             editBtn.className = "text-blue-500 justify-end hover:cursor-pointer ml-auto";
             editBtn.addEventListener("click", () => {
                 document.getElementById("note-input").value = note.input;
@@ -56,7 +56,7 @@ export function initNotes() {
             });
 
             const delBtn = document.createElement('button');
-            delBtn.textContent = "Delete";
+            delBtn.textContent = "🗑";
             delBtn.className = "text-red-500 justify-end hover:cursor-pointer ml-3";
             delBtn.addEventListener("click", () => {
                 notes.splice(index, 1);

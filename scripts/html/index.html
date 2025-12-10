@@ -74,12 +74,12 @@
       <div class="flex flex-col gap-6">
         <!-- Weather -->
         <div class="p-2 border-1 shadow-sm rounded-md border-gray-200 w-90">
-          <div class="text-3xl font-semibold font-inter pb-5">Lagos, NG</div>
+          <div class="text-3xl font-semibold font-inter pb-5">Yola, NG</div>
           <div class="flex items-center gap-5 mb-2">
-            <div class="text-5xl">🌦</div>
+            <div id="icon" class="text-5xl"></div>
             <div>
-              <div class="text-4xl font-semibold">29°C</div>
-              <div class="text-2xl leading-10">Cloudy</div>
+              <div id="temp" class="text-4xl font-semibold"></div>
+              <div id="details" class="text-2xl leading-10"></div>
             </div>
           </div>
         </div>
@@ -87,8 +87,8 @@
         <!-- Quotes -->
         <div class="p-2 border-1 shadow-sm rounded-md border-gray-200 w-90">
           <div class="text-3xl font-semibold font-inter pb-5">Quotes</div>
-          <div class="text-lg italic mb-4">Random quote here</div>
-          <button
+          <div id="quote-text" class="text-lg italic mb-4"></div>
+          <button id="qoute-btn"
             class="border-1 rounded-md border-gray-200 p-1 px-2 h-10 font-semibold font-inter hover:bg-gray-100"
           >
             New Quote
