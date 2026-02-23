@@ -6,24 +6,23 @@ export function initWeather() {
     async function fetchWeather() {
         try {
             const url =
-                "https://api.open-meteo.com/v1/forecast?latitude=9.2032&longitude=12.4953&current_weather=true"
+                "https://api.open-meteo.com/v1/forecast?latitude=6.45&longitude=3.39&current=temperature_2m,relative_humidity_2m,weather_code&daily=temperature_2m_max,temperature_2m_min&timezone=Africa/Lagos";
 
             const res = await fetch(url);
             const data = await res.json();
 
-            const temp = data.current_weather.temperature;
-            const code = data.current_weather.weathercode;
+            const temperature = data.current.temperature_2m;
+            const code = data.current.weather_code;
 
-            temp.textContent = `${temp}°C`;
+            temp.textContent = `${temperature}°C`;
             details.textContent = getCondition(code);
             icon.textContent = getIcon(code);
-            console.log(res);
         } catch (error) {
+            console.error("Weather fetch error:", error);
             temp.textContent = "--°C";
             details.textContent = "Failed to fetch weather.";
             icon.textContent = "❓";
         }
-
     }
 
     fetchWeather();
@@ -50,8 +49,8 @@ function getIcon(code) {
     if (code === 0) return "☀️";
     if (code <= 2) return "⛅";
     if (code === 3) return "☁️";
+    if (code >= 95) return "⛈️";
     if (code >= 61 && code <= 63) return "🌧️";
     if (code >= 71) return "❄️";
-    if (code >= 95) return "⛈️";
     return "🌥️";
 }

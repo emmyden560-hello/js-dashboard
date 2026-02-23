@@ -4,15 +4,12 @@ export function initQuotes() {
 
     async function fetchQuote() {
         try {
-            async function loadQuote() {
-                const res = await fetch("https://programming-quotesapi.vercel.app/api/random");
-                const data = await res.json();
-                quoteText.textContent = `"${data.quote}" — ${data.author}`;
-            }
-            await loadQuote();
-
+            const res = await fetch("https://dummyjson.com/quotes/random");
+            const data = await res.json();
+            quote.textContent = `"${data.quote}" — ${data.author}`;
         } catch (error) {
-            quote.innerText = "Failed to fetch quote. Please try again.";
+            console.error("Quote fetch error:", error);
+            quote.textContent = "Failed to fetch quote. Please try again.";
         }
     }
 

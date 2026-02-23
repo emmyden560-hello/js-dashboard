@@ -1,103 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/favicon.svg.png" type="image/svg+xml" />
-    <title>Personal Dashboard</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  </head>
-  <body class="m-40 mt-12 mb-5 bg-white transition-colors duration-500">
-    <!-- Header -->
-    <div class="flex justify-between items-center">
-      <div class="text-3xl font-semibold font-poppins ml-2 ">
-        PERSONAL DASHBOARD
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/favicon.svg.png" type="image/svg+xml" />
+  <title>Personal Dashboard</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="m-40 mt-12 mb-5 bg-white transition-colors duration-500">
+  <!-- Header -->
+  <div class="flex justify-between items-center">
+    <div class="text-3xl font-semibold font-poppins ml-2 ">
+      PERSONAL DASHBOARD
+    </div>
+  </div>
+  <!-- Greeting -->
+  <div class="text-5xl font-medium font-inter mt-4">Good Morning, Emmy</div>
+
+  <!-- Main content -->
+  <div class="flex items-start mt-3 gap-10">
+    <!-- Left side: To-Do List & Notes -->
+    <div class="flex flex-col gap-6">
+      <!-- To-Do List -->
+      <div class="p-2 border-1 shadow-sm rounded-md border-gray-200 w-115">
+        <div class="text-2xl font-semibold font-inter mb-3">To-Do List</div>
+        <div class="flex flex-row gap-4">
+          <input type="text" id="todo-input" placeholder="Add a task"
+            class="border-1 w-70 h-10 rounded-md border-gray-200 p-1 px-3 font-semibold font-inter " />
+          <button id="addbtn"
+            class="border-1 rounded-md border-gray-200 p-1 px-2 h-10 font-semibold font-inter hover:bg-gray-100">
+            Add Task
+          </button>
+        </div>
+        <div class="p-5 pl-0 pr-0" id="todo-list"></div>
       </div>
-      <div>
-        <button id="button" class="border-1 rounded-md border-gray-200 p-1 px-2 hover:cursor-pointer">
-          Light/Dark Mode
+
+      <!-- Notes -->
+      <div class="p-2 border-1 shadow-sm rounded-md border-gray-200 w-115">
+        <div class="text-2xl font-semibold font-inter mb-3">Notes</div>
+        <textarea id="note-input" rows="5"
+          class="w-full p-2 border rounded-md mt-3 focus:outline-none focus:ring-1 focus:ring-gray-500"
+          placeholder="Type your note here..."></textarea>
+        <div class="flex gap-2 justify-end">
+          <button id="add-note-btn"
+            class="border-1 rounded-md border-gray-200 p-1 px-2 h-10 font-semibold font-inter hover:bg-gray-100 mt-2">
+            Add Note
+          </button>
+        </div>
+        <div class="mt-4" id="notes"></div>
+      </div>
+    </div>
+
+    <!-- Right side: Weather & Quotes -->
+    <div class="flex flex-col gap-6">
+      <!-- Weather -->
+      <div class="p-2 border-1 shadow-sm rounded-md border-gray-200 w-90">
+        <div class="text-3xl font-semibold font-inter pb-5">Yola, NG</div>
+        <div class="flex items-center gap-5 mb-2">
+          <div id="icon" class="text-5xl"></div>
+          <div>
+            <div id="temp" class="text-4xl font-semibold"></div>
+            <div id="details" class="text-2xl leading-10"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quotes -->
+      <div class="p-2 border-1 shadow-sm rounded-md border-gray-200 w-90">
+        <div class="text-3xl font-semibold font-inter pb-5">Quotes</div>
+        <div id="quote-text" class="text-lg italic mb-4"></div>
+        <button id="qoute-btn"
+          class="border-1 rounded-md border-gray-200 p-1 px-2 h-10 font-semibold font-inter hover:bg-gray-100">
+          New Quote
         </button>
       </div>
     </div>
-    <!-- Greeting -->
-    <div class="text-5xl font-medium font-inter mt-4">Good Morning, Emmy</div>
+  </div>
 
-    <!-- Main content -->
-    <div class="flex items-start mt-3 gap-10">
-      <!-- Left side: To-Do List & Notes -->
-      <div class="flex flex-col gap-6">
-        <!-- To-Do List -->
-        <div class="p-2 border-1 shadow-sm rounded-md border-gray-200 w-115">
-          <div class="text-2xl font-semibold font-inter mb-3">To-Do List</div>
-          <div class="flex flex-row gap-4">
-            <input
-              type="text"
-              id="todo-input"
-              placeholder="Add a task"
-              class="border-1 w-70 h-10 rounded-md border-gray-200 p-1 px-3 font-semibold font-inter "
-            />
-            <button
-              id="addbtn"
-              class="border-1 rounded-md border-gray-200 p-1 px-2 h-10 font-semibold font-inter hover:bg-gray-100"
-            >
-              Add Task
-            </button>
-          </div>
-          <div class="p-5 pl-0 pr-0" id="todo-list"></div>
-        </div>
+  <script type="module" src="/scripts/app.js"></script>
+</body>
 
-        <!-- Notes -->
-        <div class="p-2 border-1 shadow-sm rounded-md border-gray-200 w-115">
-          <div class="text-2xl font-semibold font-inter mb-3">Notes</div>
-          <textarea
-            id="note-input"
-            rows="5"
-            class="w-full p-2 border rounded-md mt-3 focus:outline-none focus:ring-1 focus:ring-gray-500"
-            placeholder="Type your note here..."
-          ></textarea>
-          <div class="flex gap-2 justify-end">
-          <button
-            id="add-note-btn"
-            class="border-1 rounded-md border-gray-200 p-1 px-2 h-10 font-semibold font-inter hover:bg-gray-100 mt-2"
-          >
-            Add Note
-          </button>
-          </div>
-          <div class="mt-4" id="notes"></div>
-        </div>
-      </div>
-
-      <!-- Right side: Weather & Quotes -->
-      <div class="flex flex-col gap-6">
-        <!-- Weather -->
-        <div class="p-2 border-1 shadow-sm rounded-md border-gray-200 w-90">
-          <div class="text-3xl font-semibold font-inter pb-5">Yola, NG</div>
-          <div class="flex items-center gap-5 mb-2">
-            <div id="icon" class="text-5xl"></div>
-            <div>
-              <div id="temp" class="text-4xl font-semibold"></div>
-              <div id="details" class="text-2xl leading-10"></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Quotes -->
-        <div class="p-2 border-1 shadow-sm rounded-md border-gray-200 w-90">
-          <div class="text-3xl font-semibold font-inter pb-5">Quotes</div>
-          <div id="quote-text" class="text-lg italic mb-4"></div>
-          <button id="qoute-btn"
-            class="border-1 rounded-md border-gray-200 p-1 px-2 h-10 font-semibold font-inter hover:bg-gray-100"
-          >
-            New Quote
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <script type="module" src="/scripts/app.js"></script>
-  </body>
 </html>
